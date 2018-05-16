@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML + CSS</title>
+        <link href="aufgabe2.css" type="text/css" rel="stylesheet"/>
+
+        <!-- bind jQuery-->
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+        <!-- any script-->
+        <script type="text/javascript">
+            document.writeln("<h3> Title: " + document.title + "</h3>");
+            var count = 0;
+            function changeName() {
+                var element = document.getElementById("name");
+                //alert(element.innerHTML);
+                element.innerHTML = "Content changed " + ++count + " times";
+            }
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "../logo_fernuni.png", true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    document.getElementById("contentAfterTable")
+                            .innerHTML = xmlhttp.responseText.substring(0, 30);
+                }
+            };
+
+            $(document).ready(function () {
+                $("#nameDescription").hide();
+                $(".red_box:even").mouseenter(function () {
+                    document.getElementById("name")
+                            .innerHTML = "even red box entered";
+                });
+            })
+        </script>
+    </head>
+
+    <body>
+        <div id="mainArea">
+            <table>
+                <tr>
+                    <td id="nameDescription">Vorname:</td>
+                    <td id="name">any original content</td>
+                </tr>
+                <tr>
+                    <td onmousemove="changeName()">
+                        Hier ist ein Knopf:
+                    </td>
+                    <td>
+                        <input onclick="changeName()" id="button" type="button" 
+                               value="Das ist eine Schaltfl&auml;che" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p id="contentAfterTable"></p>
+        <table>
+            <tr>
+                <td class="gray_box">1</td>
+                <td class="red_box">3</td>
+                <td class="gray_box">5</td>
+                <td class="red_box">7</td>
+            </tr>
+            <tr>
+                <td class="red_box">2</td>
+                <td class="gray_box">4</td>
+                <td class="red_box">6</td>
+                <td class="gray_box">8</td>
+            </tr>
+        </table>
+    </body>
+</html>
