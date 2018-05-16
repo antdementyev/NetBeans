@@ -1,0 +1,51 @@
+h3 {
+    height: 100px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: rgb(150, 150, 0);
+    text-align:center;
+}
+
+#mainArea {
+    height: max-content;
+    padding: 20px;
+    border-radius: 20px;
+    border-style: dashed;
+}
+
+#name {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#surname {
+    width: auto;
+    height: 40px;
+    font-size: 20px;
+}
+
+#age {
+    width: 50%;
+    border-style: dotted;
+    background-color: rgb(180, 180, 255);
+}
+
+#button {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(0, 0, 0);
+}
+
+.gray_box {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(200, 200, 200);
+}
+
+.red_box {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 50, 50);
+}
