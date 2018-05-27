@@ -2,12 +2,14 @@ package unihagen.web.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.WebServlet;
 
-
+@WebServlet(name="MyServlet", urlPatterns={"/bla"})
 public class MyServlet extends HttpServlet {
 
     @Override
@@ -25,20 +27,19 @@ public class MyServlet extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MyServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MyServlet at " + request.getContextPath() + "</h1>");
-            out.println("<p>You called '" + request.getRequestURL() + "'</p>");
-            out.println("</body>");
-            out.println("</html>");
+        String jspPath;
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        if ("kurs1796".equals(username) && "geheim".equals(password)) {
+            request.setAttribute("username", username);
+            jspPath = "/signedIn.jsp";
+        } else {
+            request.setAttribute("errorOccurred", true);
+            jspPath = "/start.jsp";
         }
+        
+        RequestDispatcher jsp = request.getRequestDispatcher(jspPath);
+        jsp.forward(request, response);
     }
 
     @Override
