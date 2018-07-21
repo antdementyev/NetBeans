@@ -6,3 +6,5 @@
 **/.nb-gradle/
 *.iml
 **/.idea/
+**/out/
+**/classes/
