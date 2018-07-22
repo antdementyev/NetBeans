@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+    <title>JSF with validation</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <h:inputText id="name" value="#{dataBean.name}"
+                                 validatorMessage="Please enter your name">
+                        <f:validateRequired/>
+                    </h:inputText>
+                    <h:message for="name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Surname</td>
+                <td>
+                    <h:inputText id="surname" value="#{dataBean.surname}"
+                                 validatorMessage="Please enter your surname">
+                        <f:validateRequired/>
+                    </h:inputText>
+                    <h:message for="surname"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Street</td>
+                <td>
+                    <h:inputText id="street" value="#{dataBean.street}"
+                                 validatorMessage="Please enter your street">
+                        <f:validateRequired/>
+                    </h:inputText>
+                    <h:message for="street"/>
+                </td>
+            </tr>
+            <tr>
+                <td>PostCode</td>
+                <td>
+                    <h:inputText id="postCode" value="#{dataBean.postCode}"
+                                 validatorMessage="Please enter your post code">
+                        <f:validateRequired/>
+                        <f:validateLength minimum="4" maximum="5"/>
+                    </h:inputText>
+                    <h:message for="postCode"/>
+                </td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>
+                    <h:inputText id="city" value="#{dataBean.city}"
+                                 validatorMessage="Please enter your city">
+                        <f:validateRequired/>
+                    </h:inputText>
+                    <h:message for="city"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>
+                    <h:inputText id="age" value="#{dataBean.age}"
+                                 validatorMessage="Please enter your age">
+                        <f:validateRequired/>
+                        <f:validateLongRange minimum="18" maximum="120"/>
+                    </h:inputText>
+                    <h:message for="age"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Height (in cm)</td>
+                <td>
+                    <h:inputText id="height" value="#{dataBean.height}"
+                                 validatorMessage="Please enter your height">
+                        <f:validateRequired/>
+                        <f:validateLongRange minimum="50" maximum="250"/>
+                    </h:inputText>
+                    <h:message for="height"/>
+                </td>
+            </tr>
+            <tr>
+                <td>E-Mail</td>
+                <td>
+                    <h:inputText id="email" value="#{dataBean.email}"
+                                 validatorMessage="Please enter your mail">
+                        <f:validateRegex
+                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+                    </h:inputText>
+                    <h:message for="email"/>
+                </td>
+            </tr>
+        </table>
+
+        <h:commandButton value="Check" action="resultAfterValidation.xhtml"/>
+    </h:form>
+</h:body>
+
+</html>
+

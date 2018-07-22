@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>JSF Persönliche Daten</title>
+</h:head>
+<h:body>
+    Die Daten wurden erfolgreich Гјbertragen. Ihre Name ist <h:outputLabel
+        value="#{dataBean.name}"/>&nbsp;<h:outputLabel value="#{dataBean.surname}"/> und
+    Sie wohnen in der StraГџe "<h:outputLabel value="#{dataBean.street}"/>", in <h:outputLabel
+        value="#{dataBean.postCode}"/>&nbsp;<h:outputLabel value="#{dataBean.city}"/>.
+    Sie sind <h:outputLabel value="#{dataBean.age}"/> Jahre alt bei einer GrГ¶Гџe von <h:outputLabel
+        value="#{dataBean.height}"/> Zentimetern.
+    MГ¶chte man mehr Гјber Sie erfahren, sind Sie unter der E-Mail Adresse <h:outputLabel
+        value="#{dataBean.email}"/> stets erreichbar.
+</h:body>
+</html>
