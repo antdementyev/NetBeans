@@ -1,10 +1,12 @@
 package unihagen.webprogramming.jsf.book_shop;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateful;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateful;
 
 @Stateful   // "Stateful" = own instance for each Client
+@LocalBean
 public class StatefulCartBean {
 
     private List<Book> books = new ArrayList<>();
